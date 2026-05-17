@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Knowledge of Human | Liquid eyes</title>
+    
+    <link rel="icon" href="https://link-anh-cua-em.png">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #d4a373;
+            --secondary-text: #666666;
+            --border-color: #eaeaea;
+        }
+
+        /* Tự động chuyển sang giao diện tối nếu hệ điều hành của người đọc bật Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #111111;
+                --text-color: #e0e0e0;
+                --accent-color: #e9c46a;
+                --secondary-text: #a0a0a0;
+                --border-color: #2d2d2d;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--secondary-text);
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .post-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .post-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .post-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 18px;
+            font-weight: 500;
+            display: inline-block;
+            transition: color 0.2s;
+        }
+
+        .post-link:hover {
+            color: var(--accent-color);
+        }
+
+        .post-meta {
+            font-size: 13px;
+            color: var(--secondary-text);
+            margin-top: 5px;
+        }
+
+        footer {
+            margin-top: 80px;
+            font-size: 13px;
+            color: var(--secondary-text);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>The Knowledge of Human</h1>
+            <p class="subtitle">Ghi chép chuyên sâu về Toán học, Thống kê và Học máy.</p>
+        </header>
+
+        <main>
+            <h2 class="section-title">Bài viết mới nhất</h2>
+            <ul class="post-list">
+                
+                <li class="post-item">
+                    <a class="post-link" href="Dimentionality_Reduction_PCA.html">Principal Component Analysis (PCA)</a>
+                    <div class="post-meta">Chủ đề: Giảm chiều dữ liệu, Đại số tuyến tính</div>
+                </li>
+
+                <li class="post-item">
+                    <a class="post-link" href="Statistics_Covariance.html">Covariance — Hiệp Phương Sai & Ma trận Hiệp Phương Sai</a>
+                    <div class="post-meta">Chủ đề: Xác suất Thống kê</div>
+                </li>
+
+                </ul>
+        </main>
+
+        <footer>
+            <p>© 2026 Liquid eyes. Powered by Obsidian & GitHub Pages.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
