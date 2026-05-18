@@ -5,35 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReName the Liquid eyes</title>
     
-    <link rel="icon" href="https://link-anh-cua-em.png">
+    <link rel="icon" href="https://scontent.fsgn19-1.fna.fbcdn.net/v/t39.30808-1/585588257_1518323572621090_3072028727283972124_n.jpg?stp=c0.0.1140.1140a_dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeFV2UDPoU_zUaeBI40tXSYkrL5-1DNbG2ysvn7UM1sbbAhSp2KHyy7sKFQy6UZaipm49AkgB-DXBC2OtvvsVb_x&_nc_ohc=6fGQCbQH8YUQ7kNvwGbFBfp&_nc_oc=AdpGQHl7RghI6X2EJ3b5420KQLhD4wVBBQFZtGZ8Nm-jFUX1pbET4ti2b68wckcjMpM&_nc_pt=1&_nc_zt=24&_nc_ht=scontent.fsgn19-1.fna&_nc_gid=xUYXmukrK5wQJJMQixM7aw&_nc_ss=7b2a8&oh=00_Af7yFsRVa1ivatXybDF4R4fPrfu5wxtezfJtb5X5GvtmLw&oe=6A107A18">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --accent-color: #d4a373;
-            --secondary-text: #666666;
-            --border-color: #eaeaea;
+            --bg-color: #fafafa;
+            --text-color: #222222;
+            --accent-color: #2a7886; /* Màu Teal sâu làm điểm nhấn tinh tế */
+            --secondary-text: #555555;
+            --border-color: #e0e0e0;
+            --hover-bg: #f4f6f7;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-color: #111111;
-                --text-color: #e0e0e0;
-                --accent-color: #e9c46a;
+                --bg-color: #121212;
+                --text-color: #ededed;
+                --accent-color: #fde725; /* Vàng sáng có độ tương phản cao trên nền tối */
                 --secondary-text: #a0a0a0;
-                --border-color: #2d2d2d;
+                --border-color: #333333;
+                --hover-bg: #1a1a1a;
             }
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0;
-            padding: 40px 20px;
-            transition: background 0.3s, color 0.3s;
+            padding: 60px 20px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -42,30 +48,37 @@
         }
 
         header {
-            margin-bottom: 60px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--text-color); /* Border dày tạo phong cách ấn phẩm */
+            padding-bottom: 25px;
         }
 
         h1 {
-            font-size: 28px;
-            font-weight: 700;
+            font-family: 'Lora', serif;
+            font-size: 32px;
+            font-weight: 600;
             letter-spacing: -0.5px;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
+            margin: 0 0 12px 0;
+            color: var(--text-color);
         }
 
         .subtitle {
             color: var(--secondary-text);
-            font-size: 16px;
+            font-size: 15px;
             margin: 0;
+            font-style: italic;
+            font-family: 'Lora', serif;
         }
 
         .section-title {
-            font-size: 18px;
+            font-size: 13px;
             font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 25px;
+            color: var(--secondary-text);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
         }
 
         .post-list {
@@ -75,28 +88,48 @@
         }
 
         .post-item {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed var(--border-color);
+            margin-bottom: 0;
+            padding: 20px 15px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            border-radius: 6px;
+        }
+
+        .post-item:hover {
+            background-color: var(--hover-bg);
+            transform: translateX(4px); /* Hiệu ứng trượt nhẹ */
         }
 
         .post-link {
             text-decoration: none;
             color: var(--text-color);
             font-size: 18px;
-            font-weight: 500;
-            display: inline-block;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
             transition: color 0.2s;
         }
 
-        .post-link:hover {
+        .post-item:hover .post-link {
             color: var(--accent-color);
         }
 
         .post-meta {
-            font-size: 13px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 11px;
             color: var(--secondary-text);
-            margin-top: 5px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
         }
 
         footer {
@@ -104,6 +137,10 @@
             font-size: 13px;
             color: var(--secondary-text);
             text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            font-family: 'Lora', serif;
+            font-style: italic;
         }
     </style>
 </head>
@@ -111,25 +148,33 @@
 
     <div class="container">
         <header>
-            <h1>The Knowledge of Human</h1>
-            <p class="subtitle">Notebook của tôi về Toán học, Thống kê và Trí tuệ nhân tạo.</p>
+            <h1>ReName the Liquid eyes</h1>
+            <p class="subtitle">Notebook của tôi về Toán học, Xác suất, Thống kê, Khoa học dữ liệu và Trí tuệ nhân tạo.</p>
         </header>
 
         <main>
             <h2 class="section-title">Bài viết mới nhất</h2>
+            
             <ul class="post-list">
-                
-                <ul class="post-list">
-                    <li class="post-item">
-                        <a class="post-link" href="dimensionality_reduction_pca.html">Principal Component Analysis (PCA)</a>
-                        <div class="post-meta">Chủ đề: Giảm chiều dữ liệu, Đại số tuyến tính</div>
-                    </li>
+                <li class="post-item">
+                    <a class="post-link" href="statistics_covariance.html">Covariance — Hiệp Phương Sai & Ma trận Hiệp Phương Sai</a>
+                    <div class="post-meta">
+                        <span class="tag">Xác suất</span>
+                        <span class="tag">Thống kê</span>
+                        <span class="tag">Đại số tuyến tính</span>
+                        <span class="tag">Học máy</span>
+                    </div>
+                </li>
 
-                    <li class="post-item">
-                        <a class="post-link" href="statistics_covariance.html">Covariance — Hiệp Phương Sai & Ma trận Hiệp Phương Sai</a>
-                        <div class="post-meta">Chủ đề: Xác suất Thống kê, Học máy</div>
-                    </li>
-                </ul>
+                <li class="post-item">
+                    <a class="post-link" href="dimensionality_reduction_pca.html">Principal Component Analysis (PCA)</a>
+                    <div class="post-meta">
+                        <span class="tag">Giảm chiều dữ liệu</span>
+                        <span class="tag">Đại số tuyến tính</span>
+                    </div>
+                </li>
+
+            </ul>
         </main>
 
         <footer>
