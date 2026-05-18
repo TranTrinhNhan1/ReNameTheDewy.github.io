@@ -9,154 +9,242 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-color: #fafafa;
-            --text-color: #222222;
-            --accent-color: #2a7886; /* Màu Teal sâu làm điểm nhấn tinh tế */
-            --secondary-text: #555555;
-            --border-color: #e0e0e0;
-            --hover-bg: #f4f6f7;
+            --bg-color: #fbfcfd;
+            --grid-color: rgba(0, 0, 0, 0.04);
+            --text-color: #1a1a1a;
+            --secondary-text: #666666;
+            --accent-gradient: linear-gradient(135deg, #2a7886, #44b09e);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --card-bg: #ffffff;
+            --card-hover-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.06), 0 4px 8px -4px rgba(0, 0, 0, 0.04);
+            --tag-bg: #f0f4f8;
+            --tag-color: #2a7886;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-color: #121212;
-                --text-color: #ededed;
-                --accent-color: #fde725; /* Vàng sáng có độ tương phản cao trên nền tối */
-                --secondary-text: #a0a0a0;
-                --border-color: #333333;
-                --hover-bg: #1a1a1a;
+                --bg-color: #0b0f19;
+                --grid-color: rgba(255, 255, 255, 0.03);
+                --text-color: #f1f5f9;
+                --secondary-text: #94a3b8;
+                --accent-gradient: linear-gradient(135deg, #4fd1c5, #fde725);
+                --border-color: rgba(255, 255, 255, 0.08);
+                --card-bg: #111827;
+                --card-hover-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.4), 0 4px 8px -4px rgba(0, 0, 0, 0.2);
+                --tag-bg: rgba(79, 209, 197, 0.1);
+                --tag-color: #4fd1c5;
             }
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
+            /* Họa tiết lưới toán học tinh tế */
+            background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
+            background-size: 24px 24px;
             color: var(--text-color);
-            line-height: 1.7;
+            line-height: 1.6;
             margin: 0;
-            padding: 60px 20px;
-            transition: background 0.3s ease, color 0.3s ease;
+            padding: 80px 20px;
+            transition: background 0.4s ease, color 0.4s ease;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 680px;
+            max-width: 720px;
             margin: 0 auto;
         }
 
+        /* Animation xuất hiện mượt mà */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-up {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
         header {
-            margin-bottom: 50px;
-            border-bottom: 2px solid var(--text-color); /* Border dày tạo phong cách ấn phẩm */
-            padding-bottom: 25px;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 35px;
+        }
+
+        .header-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--bg-color);
+            outline: 1px solid var(--border-color);
+        }
+
+        .header-text {
+            flex: 1;
         }
 
         h1 {
             font-family: 'Lora', serif;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 600;
             letter-spacing: -0.5px;
-            margin: 0 0 12px 0;
-            color: var(--text-color);
+            margin: 0 0 8px 0;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
         }
 
         .subtitle {
             color: var(--secondary-text);
-            font-size: 15px;
+            font-size: 16px;
             margin: 0;
-            font-style: italic;
-            font-family: 'Lora', serif;
+            font-weight: 300;
         }
 
         .section-title {
-            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 25px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
             color: var(--secondary-text);
-            border-left: 3px solid var(--accent-color);
-            padding-left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: "";
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
         }
 
         .post-list {
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .post-item {
-            margin-bottom: 0;
-            padding: 20px 15px;
-            border-bottom: 1px solid var(--border-color);
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            border-radius: 6px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 28px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .post-item:hover {
-            background-color: var(--hover-bg);
-            transform: translateX(4px); /* Hiệu ứng trượt nhẹ */
+            transform: translateY(-4px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: transparent;
+        }
+
+        .post-item:hover::before {
+            opacity: 1;
         }
 
         .post-link {
             text-decoration: none;
             color: var(--text-color);
-            font-size: 18px;
-            font-weight: 600;
+            font-family: 'Lora', serif;
+            font-size: 20px;
+            font-weight: 500;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            line-height: 1.4;
             transition: color 0.2s;
         }
 
         .post-item:hover .post-link {
-            color: var(--accent-color);
+            color: var(--tag-color); /* Thừa hưởng màu sáng của tag trong darkmode/lightmode */
         }
 
         .post-meta {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         .tag {
             font-size: 11px;
-            color: var(--secondary-text);
-            background: transparent;
-            border: 1px solid var(--border-color);
-            padding: 3px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 500;
+            color: var(--tag-color);
+            background: var(--tag-bg);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         footer {
-            margin-top: 80px;
+            margin-top: 100px;
             font-size: 13px;
             color: var(--secondary-text);
             text-align: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
             font-family: 'Lora', serif;
             font-style: italic;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <h1>ReName the Liquid eyes</h1>
-            <p class="subtitle">Notebook của tôi về Toán học, Xác suất, Thống kê, Khoa học dữ liệu và Trí tuệ nhân tạo.</p>
+        <header class="animate-up">
+            <img src="https://scontent.fsgn19-1.fna.fbcdn.net/v/t39.30808-1/585588257_1518323572621090_3072028727283972124_n.jpg?stp=c0.0.1140.1140a_dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeFV2UDPoU_zUaeBI40tXSYkrL5-1DNbG2ysvn7UM1sbbAhSp2KHyy7sKFQy6UZaipm49AkgB-DXBC2OtvvsVb_x&_nc_ohc=6fGQCbQH8YUQ7kNvwGbFBfp&_nc_oc=AdpGQHl7RghI6X2EJ3b5420KQLhD4wVBBQFZtGZ8Nm-jFUX1pbET4ti2b68wckcjMpM&_nc_pt=1&_nc_zt=24&_nc_ht=scontent.fsgn19-1.fna&_nc_gid=xUYXmukrK5wQJJMQixM7aw&_nc_ss=7b2a8&oh=00_Af7yFsRVa1ivatXybDF4R4fPrfu5wxtezfJtb5X5GvtmLw&oe=6A107A18" alt="Liquid eyes" class="header-avatar">
+            <div class="header-text">
+                <h1>ReName the Liquid eyes</h1>
+                <p class="subtitle">Notebook của tôi về Toán học, Xác suất, Thống kê, Khoa học dữ liệu và Trí tuệ nhân tạo.</p>
+            </div>
         </header>
 
         <main>
-            <h2 class="section-title">Bài viết mới nhất</h2>
+            <h2 class="section-title animate-up delay-1">Bài viết mới nhất</h2>
             
             <ul class="post-list">
-                <li class="post-item">
+                <li class="post-item animate-up delay-2">
                     <a class="post-link" href="statistics_covariance.html">Covariance — Hiệp Phương Sai & Ma trận Hiệp Phương Sai</a>
                     <div class="post-meta">
                         <span class="tag">Xác suất</span>
@@ -166,18 +254,17 @@
                     </div>
                 </li>
 
-                <li class="post-item">
+                <li class="post-item animate-up delay-3">
                     <a class="post-link" href="dimensionality_reduction_pca.html">Principal Component Analysis (PCA)</a>
                     <div class="post-meta">
                         <span class="tag">Giảm chiều dữ liệu</span>
                         <span class="tag">Đại số tuyến tính</span>
                     </div>
                 </li>
-
             </ul>
         </main>
 
-        <footer>
+        <footer class="animate-up delay-3">
             <p>© 2026 Liquid eyes.</p>
         </footer>
     </div>
